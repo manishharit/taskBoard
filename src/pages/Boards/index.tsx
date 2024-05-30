@@ -28,6 +28,7 @@ const Boards = () => {
 
 	return (
 		<>
+		<div className="h-40 text-center pt-20 font-medium text-3xl text-white bg-indigo-500"><h1>Comming soon...</h1></div>
 			<DragDropContext onDragEnd={(result: any) =>
 				 {
 				 console.log(result.source.droppableId)
@@ -39,6 +40,10 @@ const Boards = () => {
 				<div className="w-full flex items-start justify-between px-5 pb-8 md:gap-0 gap-10">
 					{Object.entries(columns).map(([columnId, column]: any) => (
 						<div className="ml-0 md:ml-3 w-full flex flex-col gap-0"key={columnId}>
+							<div style={{ maxHeight: '80vh', overflowY: 'auto' }}>
+							<div  className="sticky top-0  flex items-center justify-center py-[10px] w-full bg-white rounded-lg shadow-sm text-[#555] font-medium text-[15px]">
+								{column.name}
+							</div>
 							<Droppable droppableId={columnId} key={columnId}>
 								{(provided: any) => (
 									<div
@@ -46,9 +51,9 @@ const Boards = () => {
 										{...provided.droppableProps}
 										className="flex flex-col md:w-[290px] w-[250px] gap-3 items-center py-5"
 									>
-										<div className="flex items-center justify-center py-[10px] w-full bg-white rounded-lg shadow-sm text-[#555] font-medium text-[15px]">
+										{/* <div  className="sticky top-0  flex items-center justify-center py-[10px] w-full bg-white rounded-lg shadow-sm text-[#555] font-medium text-[15px]">
 											{column.name}
-										</div>
+										</div> */}
 										{column.items.map((task: any, index: any) => (
 											<Draggable
 												key={task.id.toString()}
@@ -70,6 +75,7 @@ const Boards = () => {
 									</div>
 								)}
 							</Droppable>
+							</div>
 							<div
 								onClick={() => openModal(columnId)}
 								className="flex cursor-pointer items-center justify-center gap-1 py-[10px]  w-full opacity-90 bg-white rounded-lg shadow-sm text-[#555] font-medium text-[15px]"

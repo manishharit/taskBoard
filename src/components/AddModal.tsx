@@ -21,7 +21,7 @@ const AddModal = ({ isOpen, onClose, setOpen, handleAddTask }: AddModalProps) =>
 		title: "",
 		description: "",
 		priority: "",
-		deadline: 0,
+		deadline: "",
 		status:"",
 		image: "",
 		alt: "",
@@ -109,7 +109,7 @@ const AddModal = ({ isOpen, onClose, setOpen, handleAddTask }: AddModalProps) =>
 					<option value="high">High</option>
 				</select>
 				<select
-					name="Status"
+					name="status"
 					onChange={handleChange}
 					value={taskData.status}
 					className="w-full h-12 px-2 outline-none rounded-md bg-slate-100 border border-slate-300 text-sm"
